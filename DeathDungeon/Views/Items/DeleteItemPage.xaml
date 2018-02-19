@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DeathDungeon.Views.DeleteItemPage"
+            Title="{Binding Title}">
+
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Delete" Clicked="Delete_Clicked" />
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <StackLayout Spacing="20" Padding="15">
+
+            <Label Text="Item Delete Page" FontSize="Small" />
+            <StackLayout Grid.Row= "1" Orientation="Horizontal">
+            <Label Text="Text:" FontSize="Medium" />
+            <Label Text="{Binding Data.Name}" FontSize="Small"/>
+            </StackLayout>
+            <StackLayout Grid.Row= "1" Orientation="Horizontal">
+            <Label Text="Attack:" FontSize="Medium" />
+            <Label Text="{Binding Data.AttackStat}" FontSize="Small"/>
+            </StackLayout>
+            <StackLayout Grid.Row= "1" Orientation="Horizontal">
+            <Label Text="Defense:" FontSize="Medium" />
+            <Label Text="{Binding Data.DefenseStat}" FontSize="Small"/>
+            </StackLayout>
+            <StackLayout Grid.Row= "1" Orientation="Horizontal">
+            <Label Text="Speed:" FontSize="Medium" />
+            <Label Text="{Binding Data.SpeedStat}" FontSize="Small"/>
+            </StackLayout>
+            <StackLayout Grid.Row= "1" Orientation="Horizontal">
+            <Label Text="Range:" FontSize="Medium" />
+            <Label Text="{Binding Data.RangeStat}" FontSize="Small"/>
+            </StackLayout>
+            <StackLayout Grid.Row= "1" Orientation="Horizontal">
+            <Label Text="Location:" FontSize="Medium" />
+            <Label Text="{Binding Data.Location}" FontSize="Small"/>
+            </StackLayout>
+            <Label Text="Description:" FontSize="Medium" />
+            <Label Text="{Binding Data.Description}" FontSize="Small"/>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
