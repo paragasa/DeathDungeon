@@ -52,14 +52,14 @@ namespace DeathDungeon.Services
 
             var mockCharacters = new List<Character>
             {
-                new Character { Id = Guid.NewGuid().ToString(), Name = "First Character", classType=0, Level = 1, CurrentExperience = 10, MaximumHealth = 10, CurrentHealth = 10,  
-                                Attack = 10, Defense = 10, Speed = 1,  Description ="This is an Character description." },
+                new Character { Id = Guid.NewGuid().ToString(), Name = "First Character", classType = 2, Level = 1, CurrentExperience = 10, MaximumHealth = 10, CurrentHealth = 10,  
+                    Attack = 10, Defense = 10, Speed = 1,  Description ="This is an Character description.", ClassName = "Wizard" },
 
-                new Character { Id = Guid.NewGuid().ToString(), Name = "Second Character", classType=0, Level = 2, CurrentExperience = 20, MaximumHealth = 20, CurrentHealth = 20,
-                                Attack = 20, Defense = 20, Speed = 2,  Description ="This is an Character description." },
+                new Character { Id = Guid.NewGuid().ToString(), Name = "Second Character", classType = 3, Level = 2, CurrentExperience = 20, MaximumHealth = 20, CurrentHealth = 20,
+                    Attack = 20, Defense = 20, Speed = 2,  Description ="This is an Character description." , ClassName = "Rouge"},
 
-                new Character { Id = Guid.NewGuid().ToString(), Name = "Third Character", classType=0, Level = 3, CurrentExperience = 30, MaximumHealth = 30, CurrentHealth = 30,
-                                Attack = 30, Defense = 30, Speed = 3,  Description ="This is an Character description." },
+                new Character { Id = Guid.NewGuid().ToString(), Name = "Third Character", classType = 5, Level = 3, CurrentExperience = 30, MaximumHealth = 30, CurrentHealth = 30,
+                    Attack = 30, Defense = 30, Speed = 3,  Description ="This is an Character description." , ClassName = "Ranger"},
             };
 
             foreach (var data in mockCharacters)

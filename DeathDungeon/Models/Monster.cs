@@ -13,9 +13,9 @@ namespace DeathDungeon.Models
 
         //copied code //Change TODO
         [PrimaryKey]
-        public string Id { get; set; }
+        public string Id { get; set; } //ID for Monster
 
-        public string Description { get; set; }
+        public string Description { get; set; } //set to remove later
 
         public void Update(Monster newData)
         {

@@ -3,25 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using DeathDungeon.Models;
-using DeathDungeon.Models.EnumLists;
 
 namespace DeathDungeon.Models
 {
     public class BattleClass
     {
         //----------------------------------------------------------------------
-        GameRunningClass _gameactive;
+        public bool _gameactive { get; set; }
         bool AutoPlay;
         public BattleClass()
         {
-             _gameactive = new GameRunningClass();
+            _gameactive = false;//set active game
              AutoPlay = false;
         }
         //------------------Game Modes------------------------------------------
 
         //needed to intialize the game
         public void BeginGame(){
-            _gameactive.activateGame();
+            _gameactive=true;
             //START NEW SCORE
             //START NEW BATTLE HISTORY
             //TODO begin game
@@ -30,7 +29,7 @@ namespace DeathDungeon.Models
         public void EndGame(){
             //RECORD SCORES
             //DISPLAY BATTLE HISTORY
-            _gameactive.decativateGame();
+            _gameactive=false;
         }
         //will end game
         public bool AutoPlayGame(bool yes_auto){
@@ -118,5 +117,8 @@ namespace DeathDungeon.Models
         }
         //allow monster to attack monster
         //----------------------------------------------------------------------
+
     }
+
+
 }

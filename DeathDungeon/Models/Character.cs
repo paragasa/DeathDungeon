@@ -13,7 +13,7 @@ namespace DeathDungeon.Models
     {
 
         //-----------------VARIABLES-------------------------------------------
-        public Class classType = (Class)0; //default class
+        public int classType { get; set; } //default class
         public ItemLocation itemSlots = new ItemLocation(); // hold item slots
         public string ClassName { get; set;} //holds binding name of class
 
@@ -32,11 +32,17 @@ namespace DeathDungeon.Models
 
             // Update all the fields in the Data, except for the Id
             Name = newData.Name;
+            classType = newData.classType;
+            CheckClass(classType);
+            ClassName = newData.ClassName;
             Description = newData.Description;
             Level = newData.Level;
             Speed = newData.Speed;
+            Defense = newData.Defense;
+            Attack = newData.Attack;
+            LevelUp();
+            //test to see if stat change
         }
-        public string yo= "Warrior";
 
 
     
@@ -54,16 +60,16 @@ namespace DeathDungeon.Models
             Attack = 1;
             Defense = 1;
             Level = 1;
-            ClassName = "UNDEFINED";
-            //classType = Class.undefined;
-            classType = Class.Warrior; //cast type to be warrior
-            CheckClass(classType); //will adjust name based on determined class test
+            ClassName = "UNDEFINED";//default class sting to hold class name
+            //classType = Class.undefined; no need takes int now
+            classType = 1; //cast type to be warrior to test if not set intially
+            CheckClass(classType); //will adjust name based on determined class test ,, cast int
             Living = true;
         }
         //default constructor
         public Character(string name, int health, int currentHealth, 
                          int experience, int speed, int attack, int defense,
-                         int level, Class characterClass)
+                         int level, int characterClass)
         {  
             Name = name;
             MaximumHealth = health;
@@ -79,7 +85,7 @@ namespace DeathDungeon.Models
         }
         //constructor base with passed by value, testing
        
-        public Character(string name, Class characterClass)
+        public Character(string name, int characterClass)
         {
             Name = name;
             MaximumHealth = 10;
@@ -92,10 +98,10 @@ namespace DeathDungeon.Models
         }
         //constructor based on class with just classtype
 
-        public void CheckClass(Class classType)
+        public void CheckClass(int classType)
         {
             CharacterClass checkclass = new CharacterClass();
-            checkclass.swapStats((int)classType);
+            checkclass.swapStats(classType);
             Attack = checkclass.Attack;
             Speed = checkclass.Speed;
             Defense = checkclass.Defense;

@@ -95,7 +95,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Enum Lists\Class.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Enum Lists\Location.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\BattleClass.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\GameRunningClass.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\ItemLocation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\Scores\DeleteScorePage.xaml.cs">
       <DependentUpon>DeleteScorePage.xaml</DependentUpon>

@@ -18,9 +18,17 @@
                 <Label Text="Character Name" FontSize="Medium" />
                 <Entry Text="{Binding Data.Name}" FontSize="Small" />
                  </StackLayout>
+                 <Label Text=" Type Class Option 1-6" FontSize="Medium" />
+  <!-- undefined = 0,
+    Warrior = 1,
+    Wizard = 2,
+    Rogue = 3,
+    Cleric = 4,
+    Ranger = 5,
+    Druid = 6-->
             <StackLayout Grid.Row= "1" Orientation="Horizontal">
                 <Label Text="Class:" FontSize="Medium" />
-                <Editor Text="{Binding Data.classType}" FontSize="Small" Margin="0" />
+                 <Entry Text="{Binding Data.classType}" FontSize="Small" Margin="0" />
                  </StackLayout>
             <StackLayout Grid.Row= "1" Orientation="Horizontal">
                 <Label Text="Level:" FontSize="Medium" />

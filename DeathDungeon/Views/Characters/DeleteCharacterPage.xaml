@@ -20,7 +20,7 @@
              </StackLayout>
             <StackLayout Grid.Row= "1" Orientation="Horizontal">
             <Label Text="Class:" FontSize="Medium" />
-            <Label Text="{Binding Data.classType}" FontSize="Small"/>
+            <Label Text="{Binding Data.ClassName}" FontSize="Small"/>
              </StackLayout>
             <StackLayout Grid.Row= "1" Orientation="Horizontal">
             <Label Text="Level:" FontSize="Medium" />
