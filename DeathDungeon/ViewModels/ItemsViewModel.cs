@@ -18,7 +18,7 @@ namespace DeathDungeon.ViewModels
 
         public static ItemsViewModel Instance
         {
-            get
+            get 
             {
                 if (_instance == null)
                 {

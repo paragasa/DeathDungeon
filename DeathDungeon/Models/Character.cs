@@ -14,7 +14,7 @@ namespace DeathDungeon.Models
 
         //-----------------VARIABLES-------------------------------------------
         public int classType { get; set; } //default class
-        public ItemLocation itemSlots = new ItemLocation(); // hold item slots
+        //public ItemLocation itemSlots = new ItemLocation(); // hold item slots
         public string ClassName { get; set;} //holds binding name of class
 
         //copied var//CHANGE TODO
@@ -194,7 +194,7 @@ namespace DeathDungeon.Models
         {
             //TODO
             //release items
-            itemSlots.ReplaceSlot(item);
+            //itemSlots.ReplaceSlot(item);
         }
         //item will already have locaiton 
         //method to remove item from location
@@ -203,7 +203,7 @@ namespace DeathDungeon.Models
         public void RemoveItem(Location location)
         {
             //TODO   //release items to pool
-            itemSlots.EmptySlot(location);//empty slot based on location
+            //itemSlots.EmptySlot(location);//empty slot based on location
           
         }
 
@@ -212,7 +212,7 @@ namespace DeathDungeon.Models
             //TODO//will add items to pool, and empty slots
             if(!IsLiving())
             {
-                itemSlots.EmptyAllSlots();
+                //itemSlots.EmptyAllSlots();
             }
 
         }

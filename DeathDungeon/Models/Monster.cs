@@ -34,6 +34,7 @@ namespace DeathDungeon.Models
             Defense = newData.Defense;
             Speed = newData.Speed;
             Description = newData.Description;
+            Living = newData.Living;
         }
 
         //----------------------------------------------------------------------
@@ -100,6 +101,8 @@ namespace DeathDungeon.Models
             int newHealth = CurrentHealth - damage;
             CurrentHealth = newHealth;
 
+            GivenExperience(damage); //adds experience
+           
             //Set character to dead if HP drops to 0
             if (CurrentHealth <= 0){
                 DropItems();

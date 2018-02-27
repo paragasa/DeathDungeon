@@ -40,5 +40,12 @@ namespace DeathDungeon.Services
         Task<Score> GetAsync_Score(string id);
         Task<IEnumerable<Score>> GetAllAsync_Score(bool forceRefresh = false);
 
+        Task<bool> RecruitAsync_Character(Character data);
+        Task<IEnumerable<Character>> GetPartyAsync_Character(bool forceRefresh = false);
+        Task<bool> DeleteAsync_CharacterParty(Character data);
+
+        Task<bool> RecruitAsync_Monster(Monster data);
+        Task<bool> DeleteAsync_MonsterParty(Monster data);
+        Task<IEnumerable<Monster>> GetPartyAsync_Monster(bool forceRefresh = false);
     }
 }

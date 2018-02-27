@@ -28,6 +28,12 @@
 /Users/paragasa/Projects/_git/repos/DeathDungeon/DeathDungeon.Android/obj/Debug/DeathDungeon.Droid.Views.Scores.NewScorePage.xaml.g.cs
 /Users/paragasa/Projects/_git/repos/DeathDungeon/DeathDungeon.Android/obj/Debug/DeathDungeon.Droid.Views.Scores.ScoreDetailPage.xaml.g.cs
 /Users/paragasa/Projects/_git/repos/DeathDungeon/DeathDungeon.Android/obj/Debug/DeathDungeon.Droid.Views.Scores.ScoresPage.xaml.g.cs
+/Users/paragasa/Projects/_git/repos/DeathDungeon/DeathDungeon.Android/obj/Debug/DeathDungeon.Droid.Views.Battle.BattlePage.xaml.g.cs
+/Users/paragasa/Projects/_git/repos/DeathDungeon/DeathDungeon.Android/obj/Debug/DeathDungeon.Droid.Views.Battle.ItemDropPage.xaml.g.cs
+/Users/paragasa/Projects/_git/repos/DeathDungeon/DeathDungeon.Android/obj/Debug/DeathDungeon.Droid.Views.Battle.MonsterPartyPage.xaml.g.cs
+/Users/paragasa/Projects/_git/repos/DeathDungeon/DeathDungeon.Android/obj/Debug/DeathDungeon.Droid.Views.Battle.CharacterPartyPage.xaml.g.cs
+/Users/paragasa/Projects/_git/repos/DeathDungeon/DeathDungeon.Android/obj/Debug/DeathDungeon.Droid.Views.Characters.RecruitCharacterPage.xaml.g.cs
+/Users/paragasa/Projects/_git/repos/DeathDungeon/DeathDungeon.Android/obj/Debug/DeathDungeon.Droid.Views.Monsters.RecruitMonsterPage.xaml.g.cs
 /Users/paragasa/Projects/_git/repos/DeathDungeon/DeathDungeon.Android/obj/Debug/DeathDungeon.Android.dll
 /Users/paragasa/Projects/_git/repos/DeathDungeon/DeathDungeon.Android/obj/Debug/DeathDungeon.Android.pdb
 /Users/paragasa/Projects/_git/repos/DeathDungeon/DeathDungeon.Android/obj/Debug/android/bin/com.companyname.DeathDungeon.apk

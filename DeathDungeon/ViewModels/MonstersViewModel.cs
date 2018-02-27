@@ -29,6 +29,7 @@ namespace DeathDungeon.ViewModels
         }
 
         public ObservableCollection<Monster> Dataset { get; set; }
+        public ObservableCollection<Monster> DatasetParty{ get; set; }
         public Command LoadDataCommand { get; set; }
 
         private bool _needsRefresh;
@@ -37,6 +38,7 @@ namespace DeathDungeon.ViewModels
         {
             Title = "Monster List";
             Dataset = new ObservableCollection<Monster>();
+            DatasetParty = new ObservableCollection<Monster>();
             LoadDataCommand = new Command(async () => await ExecuteLoadDataCommand());
 
             MessagingCenter.Subscribe<DeleteMonsterPage, Monster>(this, "DeleteData", async (obj, data) =>
@@ -44,13 +46,28 @@ namespace DeathDungeon.ViewModels
                 Dataset.Remove(data);
                 await DataStore.DeleteAsync_Monster(data);
             });
+            MessagingCenter.Subscribe<RecruitMonsterPage, Monster>(this, "RecruitData", async (obj, data) =>
+            {
 
+                await DataStore.RecruitAsync_Monster(data);
+                _needsRefresh = true;
+            });
+            MessagingCenter.Subscribe<RecruitMonsterPage, Monster>(this, "DischargeData", async (obj, data) =>
+            {
+
+                await DataStore.DeleteAsync_MonsterParty(data);
+                _needsRefresh = true;
+            });
             MessagingCenter.Subscribe<NewMonsterPage, Monster>(this, "AddData", async (obj, data) =>
             {
                 Dataset.Add(data);
                 await DataStore.AddAsync_Monster(data);
             });
+            MessagingCenter.Subscribe<BattlePage, Monster>(this, "DeleteDataMonster", async (obj, data) =>
+            {
 
+                _needsRefresh = true;
+            });
             MessagingCenter.Subscribe<EditMonsterPage, Monster>(this, "EditData", async (obj, data) =>
             {
                 // Find the Monster, then update it
@@ -99,11 +116,18 @@ namespace DeathDungeon.ViewModels
             try
             {
                 Dataset.Clear();
+                DatasetParty.Clear();
                 var dataset = await DataStore.GetAllAsync_Monster(true);
+                var datasett = await DataStore.GetPartyAsync_Monster(true);
                 foreach (var data in dataset)
                 {
                     Dataset.Add(data);
                 }
+                foreach (var data in datasett)
+                {
+                    DatasetParty.Add(data);
+                }
+
             }
             catch (Exception ex)
             {

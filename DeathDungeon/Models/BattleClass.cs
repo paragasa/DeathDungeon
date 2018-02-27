@@ -11,13 +11,40 @@ namespace DeathDungeon.Models
         //----------------------------------------------------------------------
         public bool _gameactive { get; set; }
         bool AutoPlay;
+        private static BattleClass _instance;
+
+        public static BattleClass Instance
+        {
+            get
+           {
+               if (_instance == null)
+                {
+                    _instance = new BattleClass();
+                }
+                return _instance;
+            }
+        }
+       
         public BattleClass()
         {
             _gameactive = false;//set active game
-             AutoPlay = false;
+            AutoPlay = false;
+
         }
         //------------------Game Modes------------------------------------------
+        //private static ItemsController _instance;
 
+        //public static ItemsController Instance
+        //{
+        //    get
+        //    {
+        //        if (_instance == null)
+        //        {
+        //            _instance = new ItemsController();
+        //        }
+        //        return _instance;
+        //    }
+        //}
         //needed to intialize the game
         public void BeginGame(){
             _gameactive=true;
@@ -69,8 +96,7 @@ namespace DeathDungeon.Models
         //------------COMBAT----------------------------------------------------
 
         //Apply damage to character from monster attack
-        public void ApplyDamageToCharacter(Character character,
-                                     int monsterDamage){
+        public void ApplyDamageToCharacter(Character character, int monsterDamage){
             if (character.IsLiving())
             {
                 character.ApplyIncomingDamage(monsterDamage);

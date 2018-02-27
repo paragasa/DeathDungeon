@@ -2,9 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
-
 using DeathDungeon.Models;
 using DeathDungeon.Views;
 using System.Linq;
@@ -29,6 +27,7 @@ namespace DeathDungeon.ViewModels
         }
 
         public ObservableCollection<Character> Dataset { get; set; }
+        public ObservableCollection<Character> DatasetParty { get; set; }
         public Command LoadDataCommand { get; set; }
 
         private bool _needsRefresh;
@@ -38,6 +37,8 @@ namespace DeathDungeon.ViewModels
 
             Title = "Character List";
             Dataset = new ObservableCollection<Character>();
+            DatasetParty = new ObservableCollection<Character>();
+            
             LoadDataCommand = new Command(async () => await ExecuteLoadDataCommand());
 
             MessagingCenter.Subscribe<DeleteCharacterPage, Character>(this, "DeleteData", async (obj, data) =>
@@ -45,7 +46,12 @@ namespace DeathDungeon.ViewModels
                 Dataset.Remove(data);
                 await DataStore.DeleteAsync_Character(data);
             });
-
+            MessagingCenter.Subscribe<RecruitCharacterPage, Character>(this, "RecruitData", async (obj, data) =>
+            {
+                
+                await DataStore.RecruitAsync_Character(data);
+                _needsRefresh = true;
+            });
             MessagingCenter.Subscribe<NewCharacterPage, Character>(this, "AddData", async (obj, data) =>
             {
                 Dataset.Add(data);
@@ -98,10 +104,17 @@ namespace DeathDungeon.ViewModels
             try
             {
                 Dataset.Clear();
+                DatasetParty.Clear();
                 var dataset = await DataStore.GetAllAsync_Character(true);
+                var datasett = await DataStore.GetPartyAsync_Character(true);
                 foreach (var data in dataset)
                 {
                     Dataset.Add(data);
+                    
+                }
+                foreach(var data in datasett)
+                {
+                    DatasetParty.Add(data);
                 }
             }
             catch (Exception ex)

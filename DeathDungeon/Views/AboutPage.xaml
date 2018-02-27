@@ -31,10 +31,15 @@
             VerticalOptions="Center" 
             HorizontalOptions="CenterAndExpand" />
 
-    
+            <Label 
+            FontSize="Medium"
+            Text="Mobile Development"
+            VerticalOptions="Center" 
+            HorizontalOptions="CenterAndExpand" />
+
             <Label 
             FontSize="Small"
-            Text="DROP TABLE TEAM"
+            Text="Drop Table Team"
             VerticalOptions="Center" 
             HorizontalOptions="CenterAndExpand" />
         </StackLayout>
@@ -51,7 +56,7 @@
 
                 <Label 
                 FontSize="Small"
-                Text="Use Mock DataStore"
+                Text="Use SQL DataStore"
                 HorizontalTextAlignment="Start"
                 HorizontalOptions="Start"
                 />
@@ -60,7 +65,27 @@
                 x:Name="SettingDataSource"
                 HorizontalOptions="Center"
                 Toggled="Switch_OnToggled"/>
+
             </StackLayout>
+
+            <StackLayout
+                HorizontalOptions="Start"
+                Orientation="Horizontal">
+
+                <Label 
+                FontSize="Small"
+                Text="Retrieve items from online "
+                    HorizontalTextAlignment="Start"
+                    HorizontalOptions="Start"
+                />
+
+                <Button  
+                    Text="Retrieve" 
+                    Clicked="GetItems_Command" 
+                    HorizontalOptions="Center"
+                    TextColor="Black" />
+            </StackLayout>
+
 
             <StackLayout
                 HorizontalOptions="Start"
@@ -79,6 +104,7 @@
                     HorizontalOptions="Center"
                     TextColor="Black" />
             </StackLayout>
+
 
         </StackLayout>
     </StackLayout>

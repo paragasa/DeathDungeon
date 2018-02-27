@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DeathDungeon.Views.OpeningPage">
@@ -10,7 +10,7 @@
 
             <Label 
                 Margin="40,40,0,40" 
-                FontSize="40"
+                FontSize="10"
                 Text="Welcome to Death Dungeon"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
@@ -18,10 +18,10 @@
             <Image 
                 Source="d20.png" 
                 VerticalOptions="Center" 
-                HeightRequest="150"
+                HeightRequest="40"
                 HorizontalOptions="Fill"/>
 
-            <Button Margin="0,10,0,0" 
+            <!--<Button Margin="0,10,0,0" 
                     Text="User Battle" 
                     Command="{Binding UserBattleCommand}" 
                     BackgroundColor="{StaticResource Primary}" 
@@ -33,7 +33,17 @@
                     Command="{Binding AutoBattleCommand}" 
                     HorizontalOptions="Center"
                     TextColor="White" />
-
+            -->
+            <Button 
+                Text="Battle"
+                Clicked="UserBattle_Clicked"
+                HorizontalOptions="Center"
+                TextColor="Black"/>
+            <Button
+                Text="Auto-Battle"
+                Clicked="AutoBattle_Clicked"
+                HorizontalOptions="Center"
+                TextColor="Black"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

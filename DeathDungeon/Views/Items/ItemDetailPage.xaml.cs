@@ -25,16 +25,7 @@ namespace DeathDungeon.Views
         {
             InitializeComponent();
 
-            var data = new Item
-            {
-                Name = "Item 1",
-                AttackStat = 1,
-                DefenseStat = 1,
-                SpeedStat = 1,
-                RangeStat = 1,
-                Location = 0,
-                Description = "This is an item description."
-            };
+            var data = new Item();
 
             _viewModel = new ItemDetailViewModel(data);
             BindingContext = _viewModel;

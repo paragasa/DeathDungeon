@@ -29,21 +29,18 @@ namespace DeathDungeon.Services
         private List<Character> _characterDataset = new List<Character>();
         private List<Monster> _monsterDataset = new List<Monster>();
         private List<Score> _scoreDataset = new List<Score>();
+        private List<Character> _characterParty = new List<Character>();
+        private List<Item> _itemPool = new List<Item>();
+        private List<Monster> _monsterParty = new List<Monster>();
 
         private MockDataStore()
         {
             var mockItems = new List<Item>
             {
-       
-                new Item { Id = Guid.NewGuid().ToString(), Name = "Sword of Truth", AttackStat = 1, DefenseStat = 1,
-                    SpeedStat = 1, RangeStat = 1, Location = 0, Description="On hit foes speak the truth or cry out in pain, typically the latter" },
-
-                new Item { Id = Guid.NewGuid().ToString(), Name = "Emperor's New Pants", AttackStat = 1, DefenseStat = 1,
-                    SpeedStat = 1, RangeStat = 1, Location = 0, Description="Only those who are truly worthy can see these." },
-
-                new Item { Id = Guid.NewGuid().ToString(), Name = "Golden Uggs", AttackStat = 1, DefenseStat = 1,
-                    SpeedStat = 1, RangeStat = 1, Location = 0, Description="So comfortable you don't care what anyone thinks of them." },
-            };
+                new Item { Id = Guid.NewGuid().ToString(), Name = "Sword of Truth", Description="On hit foes speak the truth or cry out in pain, typically the latter" },
+                new Item { Id = Guid.NewGuid().ToString(), Name = "Emperor's New Pants", Description="Only those who are truly worthy can see these." },
+                new Item { Id = Guid.NewGuid().ToString(), Name = "Golden Uggs", Description="So comfortable you don't care what anyone thinks of them" },
+             };
 
             foreach (var data in mockItems)
             {
@@ -53,18 +50,28 @@ namespace DeathDungeon.Services
             var mockCharacters = new List<Character>
             {
                 new Character { Id = Guid.NewGuid().ToString(), Name = "First Character", classType = 2, Level = 1, CurrentExperience = 10, MaximumHealth = 10, CurrentHealth = 10,  
-                    Attack = 10, Defense = 10, Speed = 1,  Description ="This is an Character description.", ClassName = "Wizard" },
+                    Attack = 100, Defense = 10, Speed = 1,  Description ="This is an Character description.", ClassName = "Wizard" },
 
                 new Character { Id = Guid.NewGuid().ToString(), Name = "Second Character", classType = 3, Level = 2, CurrentExperience = 20, MaximumHealth = 20, CurrentHealth = 20,
-                    Attack = 20, Defense = 20, Speed = 2,  Description ="This is an Character description." , ClassName = "Rouge"},
+                    Attack = 200, Defense = 20, Speed = 2,  Description ="This is an Character description." , ClassName = "Rouge"},
 
                 new Character { Id = Guid.NewGuid().ToString(), Name = "Third Character", classType = 5, Level = 3, CurrentExperience = 30, MaximumHealth = 30, CurrentHealth = 30,
-                    Attack = 30, Defense = 30, Speed = 3,  Description ="This is an Character description." , ClassName = "Ranger"},
+                    Attack = 300, Defense = 30, Speed = 3,  Description ="This is an Character description." , ClassName = "Ranger"},
+                 new Character { Id = Guid.NewGuid().ToString(), Name = "Fourth Character", classType = 2, Level = 1, CurrentExperience = 10, MaximumHealth = 10, CurrentHealth = 10,
+                    Attack = 100, Defense = 10, Speed = 1,  Description ="This is an Character description.", ClassName = "Wizard" },
+
+                new Character { Id = Guid.NewGuid().ToString(), Name = "Fifth Character", classType = 3, Level = 2, CurrentExperience = 20, MaximumHealth = 20, CurrentHealth = 20,
+                    Attack = 200, Defense = 20, Speed = 2,  Description ="This is an Character description." , ClassName = "Rouge"},
+
+                new Character { Id = Guid.NewGuid().ToString(), Name = "Sixth Character", classType = 5, Level = 3, CurrentExperience = 30, MaximumHealth = 30, CurrentHealth = 30,
+                    Attack = 300, Defense = 30, Speed = 3,  Description ="This is an Character description." , ClassName = "Ranger"},
+
             };
 
             foreach (var data in mockCharacters)
             {
                 _characterDataset.Add(data);
+                _characterParty.Add(data);
             }
 
             var mockMonsters = new List<Monster>
@@ -77,11 +84,21 @@ namespace DeathDungeon.Services
 
                 new Monster { Id = Guid.NewGuid().ToString(), Name = "Third Monster", Level = 3, CurrentExperience = 30, MaximumHealth = 30, CurrentHealth = 30,
                     Attack = 30, Defense = 30, Speed = 3, Description ="This is an Monster description." },
+
+                new Monster { Id = Guid.NewGuid().ToString(), Name = "Fourth Monster", Level = 1, CurrentExperience = 10, MaximumHealth = 10, CurrentHealth = 10,
+                    Attack = 10, Defense = 10, Speed = 1, Description ="This is an Monster description." },
+
+                new Monster { Id = Guid.NewGuid().ToString(), Name = "Fifth Monster", Level = 2, CurrentExperience = 20, MaximumHealth = 20, CurrentHealth = 20,
+                    Attack = 20, Defense = 20, Speed = 2, Description ="This is an Monster description." },
+
+                new Monster { Id = Guid.NewGuid().ToString(), Name = "Sixth Monster", Level = 3, CurrentExperience = 30, MaximumHealth = 30, CurrentHealth = 30,
+                    Attack = 30, Defense = 30, Speed = 3, Description ="This is an Monster description." },
             };
 
             foreach (var data in mockMonsters)
             {
                 _monsterDataset.Add(data);
+                _monsterParty.Add(data);
             }
 
             var mockScores = new List<Score>
@@ -94,6 +111,7 @@ namespace DeathDungeon.Services
             foreach (var data in mockScores)
             {
                 _scoreDataset.Add(data);
+
             }
 
         }
@@ -163,6 +181,7 @@ namespace DeathDungeon.Services
         {
             var myData = _characterDataset.FirstOrDefault(arg => arg.Id == data.Id);
             _characterDataset.Remove(myData);
+            _characterParty.Remove(myData);
 
             return await Task.FromResult(true);
         }
@@ -177,6 +196,29 @@ namespace DeathDungeon.Services
             return await Task.FromResult(_characterDataset);
         }
 
+        //character party
+
+        public async Task<bool> RecruitAsync_Character(Character data)
+        {
+            if (_characterParty.Count < 6)
+            {
+                _characterParty.Add(data);
+            }
+
+            return await Task.FromResult(true);
+        }
+        public async Task<bool> DeleteAsync_CharacterParty(Character data)
+        {
+            var myData = _characterDataset.FirstOrDefault(arg => arg.Id == data.Id);
+            _characterParty.Remove(myData);
+
+            return await Task.FromResult(true);
+        }
+
+        public async Task<IEnumerable<Character>> GetPartyAsync_Character(bool forceRefresh = false)
+        {
+            return await Task.FromResult(_characterParty);
+        }
 
         //Monster
         public async Task<bool> AddAsync_Monster(Monster data)
@@ -203,7 +245,7 @@ namespace DeathDungeon.Services
         {
             var myData = _monsterDataset.FirstOrDefault(arg => arg.Id == data.Id);
             _monsterDataset.Remove(myData);
-
+            _monsterParty.Remove(myData);
             return await Task.FromResult(true);
         }
 
@@ -215,6 +257,29 @@ namespace DeathDungeon.Services
         public async Task<IEnumerable<Monster>> GetAllAsync_Monster(bool forceRefresh = false)
         {
             return await Task.FromResult(_monsterDataset);
+        }
+
+        //Monster Party
+        public async Task<bool> RecruitAsync_Monster(Monster data)
+        {
+            if (_monsterParty.Count < 6)
+            {
+                _monsterParty.Add(data);
+            }
+
+            return await Task.FromResult(true);
+        }
+        public async Task<bool> DeleteAsync_MonsterParty(Monster data)
+        {
+            var myData = _monsterDataset.FirstOrDefault(arg => arg.Id == data.Id);
+            _monsterParty.Remove(myData);
+
+            return await Task.FromResult(true);
+        }
+
+        public async Task<IEnumerable<Monster>> GetPartyAsync_Monster(bool forceRefresh = false)
+        {
+            return await Task.FromResult(_monsterParty);
         }
 
         // Score

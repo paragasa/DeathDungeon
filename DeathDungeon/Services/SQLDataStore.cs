@@ -80,42 +80,31 @@ namespace DeathDungeon.Services
         private async void InitilizeSeedData()
         {
             //Item Seed Data
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Name = "Helmet of Blinding Light", AttackStat = 1, DefenseStat = 1, SpeedStat = 1,
-                RangeStat = 1, Location = 0, Description = "Let's you see in the darkest of dungeons, alot like a mining helmet."});
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Name = "First item", Description = "This is an item description." });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Name = "Second item", Description = "This is an item description." });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Name = "Third item", Description = "This is an item description." });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Name = "Fourth item", Description = "This is an item description." });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Name = "Fifth item", Description = "This is an item description." });
+            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Name = "Sixth item", Description = "This is an item description." });
 
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Name = "Gold Wedding Band", AttackStat = 1, DefenseStat = 1, SpeedStat = 1,
-                RangeStat = 1, Location = 0, Description = "Strange glowing foreign text on the inside but it's a perfect fit!" });
 
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Name = "Third item", AttackStat = 1, DefenseStat = 1, SpeedStat = 1,
-                RangeStat = 1, Location = 0, Description = "This is an item description." });
-
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Name = "Fourth item", AttackStat = 1, DefenseStat = 1, SpeedStat = 1,
-                RangeStat = 1, Location = 0, Description = "This is an item description." });
-
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Name = "Fifth item", AttackStat = 1, DefenseStat = 1, SpeedStat = 1,
-                RangeStat = 1, Location = 0, Description = "This is an item description." });
-
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Name = "Sixth item", AttackStat = 1, DefenseStat = 1, SpeedStat = 1,
-                RangeStat = 1, Location = 0, Description = "This is an item description." });
-
-            
             //Character Seed Data
             await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "First Character", classType = 0, Level = 1, CurrentExperience = 100,
                 MaximumHealth = 10, CurrentHealth = 10, Attack = 10, Defense = 10, Speed = 1, Description = "This is an Character description." });
 
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Second Character", classType=0, Level = 2, CurrentExperience = 200,
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Second Character", classType = 0, Level = 2, CurrentExperience = 200,
                 MaximumHealth = 20, CurrentHealth = 20, Attack = 20, Defense = 20, Speed = 2, Description = "This is an Character description." });
 
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Third Character", classType=0, Level = 3, CurrentExperience = 300,
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Third Character", classType = 0, Level = 3, CurrentExperience = 300,
                 MaximumHealth = 30, CurrentHealth = 30, Attack = 30, Defense = 30, Speed = 3, Description = "This is an Character description." });
 
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Fourth Character", classType=0, Level = 4, CurrentExperience = 400,
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Fourth Character", classType = 0, Level = 4, CurrentExperience = 400,
                 MaximumHealth = 40, CurrentHealth = 40, Attack = 40, Defense = 40, Speed = 4, Description = "This is an Character description." });
 
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Fifth Character", classType=0, Level = 5, CurrentExperience = 500,
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Fifth Character", classType = 0, Level = 5, CurrentExperience = 500,
                 MaximumHealth = 50, CurrentHealth = 50, Attack = 50, Defense = 50, Speed = 5, Description = "This is an Character description." });
 
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Sixth Character", classType=0, Level = 6, CurrentExperience = 600,
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Sixth Character", classType = 0, Level = 6, CurrentExperience = 600,
                 MaximumHealth = 60, CurrentHealth = 60, Attack = 60, Defense = 60, Speed = 6, Description = "This is an Character description." });
 
 
@@ -137,12 +126,12 @@ namespace DeathDungeon.Services
 
             await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Sixth Monster", Level = 6, CurrentExperience = 60,
                 MaximumHealth = 60, CurrentHealth = 60, Attack = 60, Defense = 60, Speed = 6, Description = "This is an Monster description." });
-            
+
 
             //Score Seed Data
-            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), Name = "First Score", ScoreTotal= 111});
-            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), Name = "Second Score", ScoreTotal= 222 });
-            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), Name = "Third Score", ScoreTotal= 333});
+            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), Name = "First Score", ScoreTotal = 111 });
+            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), Name = "Second Score", ScoreTotal = 222 });
+            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), Name = "Third Score", ScoreTotal = 333 });
             await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), Name = "Fourth Score", ScoreTotal = 444 });
             await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), Name = "Fifth Score", ScoreTotal = 555 });
             await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), Name = "Sixth Score", ScoreTotal = 666 });
@@ -150,6 +139,30 @@ namespace DeathDungeon.Services
         }
 
         // Item
+        public async Task<bool> InsertUpdateAsync_Item(Item data)
+        {
+            // Check to see if the item exists
+            var old = await GetAsync_Item(data.Id);
+
+            // If it does not exist, then Insert it into the DB
+            if (old == null)
+            {
+                var Insert = await App.Database.InsertAsync(data);
+                if (Insert == 1)
+                {
+                    return true;
+                }
+            }
+
+            // If it does exist, Update it into the DB
+            var Update = await UpdateAsync_Item(data);
+            if (Update)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public async Task<bool> AddAsync_Item(Item data)
         {
             var result = await App.Database.InsertAsync(data);
@@ -185,8 +198,17 @@ namespace DeathDungeon.Services
 
         public async Task<Item> GetAsync_Item(string id)
         {
-            var result = await App.Database.GetAsync<Item>(id);
-            return result;
+            try
+            {
+                var result = await App.Database.GetAsync<Item>(id);
+                return result;
+            }
+            catch (Exception Ex)
+            {
+                Console.WriteLine(Ex.ToString());
+                return null;
+            }
+
         }
 
         public async Task<IEnumerable<Item>> GetAllAsync_Item(bool forceRefresh = false)
@@ -241,8 +263,33 @@ namespace DeathDungeon.Services
             var result = await App.Database.Table<Character>().ToListAsync();
             return result;
         }
+        public async Task<bool> RecruitAsync_Character(Character data)
+        {
+            var result = await App.Database.InsertAsync(data);
+            if (result == 1)
+            {
+                return true;
+            }
 
+            return false;
+        }
 
+        public async Task<IEnumerable<Character>> GetPartyAsync_Character(bool forceRefresh = false)
+        {
+            var result = await App.Database.Table<Character>().ToListAsync();
+
+            return result;
+        }
+        public async Task<bool> DeleteAsync_CharacterParty(Character data)
+        {
+            var result = await App.Database.DeleteAsync(data);
+            if (result == 1)
+            {
+                return true;
+            }
+
+            return false;
+        }
         //Monster
         public async Task<bool> AddAsync_Monster(Monster data)
         {
@@ -289,6 +336,34 @@ namespace DeathDungeon.Services
             return result;
 
         }
+
+        //monster party
+        public async Task<bool> RecruitAsync_Monster(Monster data)
+        {
+            var result = await App.Database.InsertAsync(data);
+            if (result == 1)
+            {
+                return true;
+            }
+
+            return false;
+        }
+       public async  Task<IEnumerable<Monster>> GetPartyAsync_Monster(bool forceRefresh = false)
+        {
+            var result = await App.Database.Table<Monster>().ToListAsync();
+            return result;
+        }
+        public async Task<bool> DeleteAsync_MonsterParty(Monster data)
+        {
+            var result = await App.Database.DeleteAsync(data);
+            if (result == 1)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
 
         // Score
         public async Task<bool> AddAsync_Score(Score data)

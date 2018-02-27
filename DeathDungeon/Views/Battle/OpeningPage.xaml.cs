@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -15,11 +15,11 @@ namespace DeathDungeon.Views
 
         private async void UserBattle_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new NewItemPage());
+            await Navigation.PushAsync(new CharacterPartyPage());
         }
         private async void AutoBattle_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new NewItemPage());
+            await Navigation.PushAsync(new NewScorePage());
         }
 
     }

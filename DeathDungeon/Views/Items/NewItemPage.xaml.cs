@@ -19,11 +19,6 @@ namespace DeathDungeon.Views
             Data = new Item
             {
                 Name = "Item name",
-                AttackStat = 1,
-                DefenseStat = 1,
-                SpeedStat = 1,
-                RangeStat = 1,
-                Location = 0,
                 Description = "This is an item description.",
                 Id = Guid.NewGuid().ToString()
             };
